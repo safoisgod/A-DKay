@@ -749,23 +749,32 @@ http://www.tooplate.com/view/2098-health
               });
           });
           
-          // Programmatic binding for toggleMenu
-        function toggleMenu() {
-            console.log('toggleMenu called');
-            const checkbox = document.querySelector('.hamburger-icon input');
-            const menu = document.querySelector('.menu-space');
-            if (checkbox && menu) {
-                menu.classList.toggle('active', checkbox.checked);
-            } else {
-                console.error('Checkbox or menu not found');
-            }
-        }
+          document.addEventListener('DOMContentLoaded', () => {
+        // Existing code for cards...
 
-        // Bind the event
-        $('#hamburger-checkbox').on('change', function() {
-            console.log('Checkbox changed');
-            toggleMenu();
-        });
+              // Hamburger toggle function
+              function toggleMenu() {
+                  console.log('toggleMenu called');
+                  const checkbox = document.getElementById('hamburger-checkbox');
+                  const menu = document.querySelector('.menu-space');
+                  if (checkbox && menu) {
+                      menu.classList.toggle('active', checkbox.checked);
+                  } else {
+                      console.error('Checkbox or menu not found');
+                  }
+              }
+          
+              // Bind the event
+              const checkbox = document.getElementById('hamburger-checkbox');
+              if (checkbox) {
+                  checkbox.addEventListener('change', () => {
+                      console.log('Checkbox changed');
+                      toggleMenu();
+                  });
+              } else {
+                  console.error('Hamburger checkbox not found in DOM');
+              }
+          });
       </script>
 
 </body>
