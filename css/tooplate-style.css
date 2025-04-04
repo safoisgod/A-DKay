@@ -245,53 +245,6 @@ http://www.tooplate.com/view/2098-health
   }
 
 
-
-  /*---------------------------------------
-      MENU              
-  -----------------------------------------*/
-
-  header {
-    background: #ffffff;
-    border-bottom: 1px solid #f2f2f2;
-    display: flex;
-    height: 45px;
-  }
-
-  header .col-md-8 {
-    padding-right: 0;
-  }
-
-  header p,
-  header span {
-    font-size: 12px;
-    line-height: 24px;
-    padding-top: 12px;
-  }
-
-  header a,
-  header span {
-    color: #747474;
-  }
-
-  header span {
-    font-weight: 500;
-    display: inline-block;
-    padding: 11px 15px;
-  }
-
-  header span.date-icon {
-    border-left: 1px solid #f2f2f2;
-    border-right: 1px solid #f2f2f2;
-    padding-right: 19px;
-    padding-left: 19px;
-  }
-
-  header span i {
-    color: #a5c422;
-    margin-right: 5px;
-  }
-
-
 /* ================================
    GENERAL HEADER STYLES
    ================================ */
@@ -422,7 +375,35 @@ header.scrolled {
             stroke-dashoffset: -32.42;
         }
 
+@media (max-width: 850px) {
+    .menu-space {
+        display: none; /* Hide menu by default on small screens */
+        position: absolute;
+        top: 80px; /* Below header */
+        left: 0;
+        right: 0;
+        background-color: #f1f1f1;
+        flex-direction: column;
+        padding: 20px;
+        z-index: 999;
+    }
 
+    .menu-space.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .menu-space li {
+        padding: 10px 0; /* Adjust spacing for vertical layout */
+    }
+
+    .hamburger-icon {
+        display: block; /* Show hamburger on small screens */
+    }
+
+    .right-side {
+        position: relative; /* Ensure menu positions correctly */
+    }
+}
 
 /*---------------------------------------
     HOME
