@@ -979,27 +979,31 @@ button {
 }
 
   .services-header h1 {
-      font-size: 2.1rem;
+      font-size: 2.8rem;
   }
 
   .services-header p {
-      font-size: 1rem;
+      font-size: 1.6rem;
   }
+  
+  .service-card {
+    padding: 0 10px;
+    }
 
   .service-card h3 {
-      font-size: 1.6rem;
+      font-size: 1.8rem;
   }
 
   .service-card p {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
   }
 
   .service-card ul li {
-      font-size: 0.9rem;
+      font-size: 1rem;
   }
 
   .service-card .learn-more {
-      font-size: 0.9rem;
+      font-size: 1rem;
       padding: 8px 15px;
   }
 }
