@@ -1039,6 +1039,7 @@ button {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .about-info p{
