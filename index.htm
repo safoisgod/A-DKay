@@ -39,30 +39,30 @@ http://www.tooplate.com/view/2098-health
      </section>
 
 
-          <!-- Header Section -->
-          <header class="header-space">
-               <nav class="navigation-space">
-               <div class="left-side">
-                    <a href="index.htm"><img class="logo" src="images/logo.png" alt="Logo"></a>
-               </div>
-               <div class="right-side">
-                    <ul class="menu-space">
-                         <li><a href="index.htm">HOME</a></li>
-                         <li><a href="books.htm">BOOK COLLECTION</a></li>
-                         <li><a href="authors.htm">AUTHORS</a></li>
-                         <li><a href="blogs.htm">BLOG</a></li>
-                         <li><a href="#about">ABOUT US</a></li>
-                    </ul>
-                    <label class="hamburger-icon">
-                         <input type="checkbox" id="hamburger-checkbox">
-                         <svg viewBox="0 0 32 32">
-                         <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
-                         <path class="line" d="M7 16 27 16"></path>
-                         </svg>
-                    </label>
-               </div>
-               </nav>
-          </header>
+         <!-- Header Section -->
+    <header class="header-space">
+        <nav class="navigation-space">
+            <div class="left-side">
+                <a href="index.htm"><img class="logo" src="images/logo.png" alt="Logo"></a>
+            </div>
+            <div class="right-side">
+                <ul class="menu-space">
+                    <li><a href="index.htm">HOME</a></li>
+                    <li><a href="books.htm">BOOK COLLECTION</a></li>
+                    <li><a href="authors.htm">AUTHORS</a></li>
+                    <li><a href="blogs.htm">BLOG</a></li>
+                    <li><a href="#about">ABOUT US</a></li>
+                </ul>
+                <label class="hamburger-icon">
+                    <input type="checkbox" id="hamburger-checkbox">
+                    <svg viewBox="0 0 32 32">
+                        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+                        <path class="line" d="M7 16 27 16"></path>
+                    </svg>
+                </label>
+            </div>
+        </nav>
+    </header>
  
 
      <!-- HOME -->
@@ -661,14 +661,14 @@ http://www.tooplate.com/view/2098-health
 
      <script>
           document.addEventListener('DOMContentLoaded', () => {
+              // Card slider functionality
               const cards = document.querySelectorAll('.service-card');
               const prevBtn = document.getElementById('prev-btn');
               const nextBtn = document.getElementById('next-btn');
               const navigation = document.querySelector('.navigation');
               let currentIndex = 0;
-              let cardsPerPage = 2; // Default to 2 cards per page
-  
-              // Function to determine cards per page based on screen size
+              let cardsPerPage = 2;
+          
               function updateCardsPerPage() {
                   if (window.innerWidth <= 850) {
                       cardsPerPage = 1;
@@ -678,8 +678,7 @@ http://www.tooplate.com/view/2098-health
                       cardsPerPage = cards.length; // Show all cards above 1100px
                   }
               }
-  
-              // Function to update visible cards
+          
               function updateVisibleCards() {
                   cards.forEach((card, index) => {
                       if (window.innerWidth <= 1100) {
@@ -692,13 +691,12 @@ http://www.tooplate.com/view/2098-health
                           card.classList.add('active-card'); // Show all cards above 1100px
                       }
                   });
-  
+          
                   // Update button states
                   prevBtn.disabled = currentIndex === 0;
                   nextBtn.disabled = currentIndex >= cards.length - cardsPerPage;
               }
-  
-              // Show navigation buttons only for screens <= 1100px
+          
               function updateNavigationVisibility() {
                   if (window.innerWidth <= 1100) {
                       navigation.style.display = 'flex';
@@ -706,23 +704,22 @@ http://www.tooplate.com/view/2098-health
                       navigation.style.display = 'none';
                   }
               }
-  
+          
               // Initial setup
               updateCardsPerPage();
               updateVisibleCards();
               updateNavigationVisibility();
-  
+          
               // Update on window resize
               window.addEventListener('resize', () => {
                   updateCardsPerPage();
-                  // Adjust currentIndex to ensure it's valid for the new cardsPerPage
                   if (currentIndex > cards.length - cardsPerPage) {
                       currentIndex = Math.max(0, cards.length - cardsPerPage);
                   }
                   updateVisibleCards();
                   updateNavigationVisibility();
               });
-  
+          
               // Navigation button events
               prevBtn.addEventListener('click', () => {
                   if (currentIndex > 0) {
@@ -730,14 +727,14 @@ http://www.tooplate.com/view/2098-health
                       updateVisibleCards();
                   }
               });
-  
+          
               nextBtn.addEventListener('click', () => {
                   if (currentIndex < cards.length - cardsPerPage) {
                       currentIndex += cardsPerPage;
                       updateVisibleCards();
                   }
               });
-  
+          
               // Click-to-activate functionality (for above 1100px)
               cards.forEach(card => {
                   card.addEventListener('click', () => {
@@ -747,11 +744,7 @@ http://www.tooplate.com/view/2098-health
                       }
                   });
               });
-          });
           
-          document.addEventListener('DOMContentLoaded', () => {
-        // Existing code for cards...
-
               // Hamburger toggle function
               function toggleMenu() {
                   console.log('toggleMenu called');
@@ -764,7 +757,7 @@ http://www.tooplate.com/view/2098-health
                   }
               }
           
-              // Bind the event
+              // Bind hamburger event
               const checkbox = document.getElementById('hamburger-checkbox');
               if (checkbox) {
                   checkbox.addEventListener('change', () => {
