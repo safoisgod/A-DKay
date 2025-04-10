@@ -1,0 +1,1225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts,.googleapis.com/css2?family=monserrat:wght@300;400&display=swap');
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+    /*---------------------------------------
+     TYPOGRAPHY              
+  -----------------------------------------*/
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: inherit;
+  }
+
+  h1,h2,h3,h4 {
+    letter-spacing: -1px;
+  }
+
+  h5 {
+    font-weight: 500;
+  }
+
+  h1 {
+    color: #ffffff;
+    font-size: 5em;
+  }
+
+  h2 {
+    color: #272727;
+    font-size: 3em;
+    padding-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 1.8em;
+    line-height: 1.2em;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    color: #454545;
+    font-size: 1.8em;
+    padding-bottom: 2px;
+  }
+
+  h6 {
+    letter-spacing: 0;
+    font-weight: normal;
+  }
+
+
+/* ================================
+    HEADER STYLES
+   ================================ */
+header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #ffffff;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, top 0.3s ease;
+}
+
+header.fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled {
+    background-color: #f1f1f1;
+}
+
+/* --------------------------------
+   NAVIGATION STYLING
+   -------------------------------- */
+.navigation-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    max-width: 1200px;
+}
+
+.left-side .logo {
+    height: 60px;
+}
+
+.right-side {
+    display: flex;
+    align-items: center;
+}
+
+.menu-space {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-space li {
+    padding: 0 15px;
+}
+
+.menu-space a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 12px;
+    position: relative;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.menu-space a:hover {
+    transform: scale(1.1);
+}
+
+.menu-space a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #4267b2;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-space a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ================================
+    HAMBURGER ICON STYLING
+    ================================ */
+.hamburger-icon {
+    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+
+.hamburger-icon input {
+    display: none; /* Hide checkbox */
+}
+
+.hamburger-icon svg {
+    height: 3em;
+    width: 3em;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+    fill: none;
+    stroke: #333; /* Matches menu text color, adjust as needed */
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+    stroke-dasharray: 12 63;
+}
+
+.hamburger-icon input:checked + svg {
+    transform: rotate(-45deg);
+}
+
+.hamburger-icon input:checked + svg .line-top-bottom {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
+}
+
+/* ================================
+   MOBILE MENU STYLING
+   ================================ */
+@media (max-width: 1200px) {
+    .menu-space {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.95);
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .menu-space.active {
+        display: flex;
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .hamburger-icon {
+        display: block; /* Show hamburger icon at 1200px and below */
+    }
+
+    .menu-space li {
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+/* ================================
+   HERO SECTION STYLES
+   ================================ */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px); /* 100vh minus header height */
+    overflow: hidden;
+    /* Removed margin-top to eliminate the gap */
+}
+
+header.fixed + .hero-section {
+    margin-top: 80px; /* Add margin-top only when header is fixed */
+}
+
+.hero-section::after {
+    content: "Scroll Down";
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+    z-index: 2;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, 10px);
+    }
+}
+.owl-carousel .item {
+    height: calc(100vh - 80px); /* Match the hero section height */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.owl-carousel .item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for better text readability */
+}
+
+.owl-carousel .item .content {
+    position: relative;
+    z-index: 1;
+    max-width: 80%; /* Limit text width to 80% of the screen */
+    padding: 20px;
+    animation: fadeInUp 1.2s ease-out;
+}
+.owl-carousel .item .content > * {
+    margin-bottom: 20px; 
+}
+
+.owl-carousel .item h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.owl-carousel .item p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.owl-carousel .item .subtitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+/* Button Styling */
+.primary-button {
+    font-family: 'Ropa Sans', sans-serif;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    border: 1px solid #0E1822;
+    padding: 0.8rem 2.1rem;
+    background-color: #4267b2;;
+    background-size: 200%;
+    background-position: 200%;
+    background-repeat: no-repeat;
+    transition: 0.3s ease-in-out;
+    transition-property: background-position, border, color;
+    position: relative;
+    z-index: 1;
+}
+
+.primary-button:hover {
+    border: 1px solid #4267b2;
+    color: white;
+    background-position: 40%;
+}
+
+.primary-button:before {
+    content: "";
+    position: absolute;
+    background-color: #0E1822;
+    width: 0.2rem;
+    height: 0.2rem;
+    top: -1px;
+    left: -1px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.primary-button:hover:before {
+    background-color: white;
+}
+
+.primary-button:hover:after {
+    background-color: white;
+}
+
+.primary-button:after {
+    content: "";
+    position: absolute;
+    background-color: #4267b2;
+    width: 0.3rem;
+    height: 0.3rem;
+    bottom: -1px;
+    right: -1px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/* Custom Navigation Buttons */
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 90%; /* Set to 90% of the page width */
+    left: 5%; /* Center the 90% width (5% on each side) */
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 2; /* Ensure buttons are above the overlay */
+}
+
+.owl-nav button {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(200, 200, 200, 0.7)) !important;
+    border-radius: 50% !important;
+    width: 30px;
+    height: 30px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px; /* Adjusted margin for better spacing */
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+}
+
+.owl-nav button:hover {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 1), rgba(220, 220, 220, 0.9)) !important;
+    transform: scale(1.15); /* Slightly larger on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.owl-nav button i {
+    font-size: 15px; /* Icon size */
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.owl-nav button:hover i {
+    color: #4267b2; /* Change icon color on hover */
+}
+
+/* Add a subtle animation when the slide changes */
+.owl-nav button {
+    animation: pulse 2s infinite; /* Pulse animation for a dynamic feel */
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+/* Dots Styling */
+.owl-dots {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.owl-dots .owl-dot span {
+    background: #ccc !important;
+}
+
+.owl-dots .owl-dot.active span {
+    background: #4267b2 !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .owl-carousel .item h1 {
+        font-size: 1.8rem; /* Smaller heading on mobile */
+    }
+
+    .owl-carousel .item p {
+        font-size: 0.9rem; /* Smaller paragraph text on mobile */
+    }
+
+    .owl-carousel .item .btn {
+        padding: 8px 16px; /* Smaller button on mobile */
+        font-size: 0.9rem;
+    }
+
+    .owl-nav button {
+        width: 40px; /* Smaller buttons on mobile */
+        height: 40px;
+        margin: 0 10px;
+    }
+
+    .owl-nav button i {
+        font-size: 20px; /* Smaller icons on mobile */
+    }
+
+    .owl-carousel .item .content {
+        padding: 15px; /* Reduced padding on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .owl-carousel .item h1 {
+        font-size: 1.5rem;
+    }
+
+    .owl-carousel .item p {
+        font-size: 0.8rem;
+    }
+
+    .owl-carousel .item .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .owl-nav button {
+        width: 35px;
+        height: 35px;
+        margin: 0 5px;
+    }
+
+    .owl-nav button i {
+        font-size: 18px;
+    }
+}
+
+/*==================================
+    BOOK HIGHLIGHT SECTION
+    ==================================*/
+    #book-spotlight {
+        margin: 20px 0;
+        padding: 50px 0; /* Adjust padding to 50px top and bottom, 0px left and right */
+        background: none; /* Remove background image */
+    }
+
+    /* Container to limit width to 1200px */
+    #book-spotlight .container {
+        max-width: 1200px; /* Maximum width of 1200px */
+        margin: 0 auto; /* Center the container */
+        padding: 0 15px; /* Small padding on the sides for smaller screens */
+    }
+
+    /* Row layout */
+    .container .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px; /* Add some space between the text and image */
+    }
+
+    /* Column classes (mimicking Bootstrap-like behavior with Flexbox) */
+    .col-md-6 {
+        flex: 0 0 50%; /* Each column takes 50% of the row by default */
+        max-width: 50%;
+    }
+
+    /* Book Info (Text Content) */
+    .book-info {
+        text-align: left;
+        color: #000;
+        flex: 0 0 55%; /* Takes up 65% of the 1200px container (780px) */
+        max-width: 90%;
+        width: 100%; /* Ensure the container takes the full width of its allocated space */
+        padding: 0; /* Remove any padding that might shrink the content area */
+    }
+
+    .book-info h2 {
+        margin-bottom: 20px;
+        font-size: 2.0rem;
+        font-weight: bold;
+        width: 100%; /* Ensure the heading takes the full width */
+    }
+
+    .book-info h2 i {
+        margin-left: 10px;
+    }
+
+    .book-info p {
+        text-align: justify;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        width: 100%; /* Ensure paragraphs take the full width */
+    }
+
+    /* Author Info */
+    .author-info {
+        width: 100%; /* Ensure the author info takes the full width */
+    }
+
+    .author-info h3 {
+        margin-top: 0;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .author-info p {
+        font-style: italic;
+        color: #888;
+        margin-bottom: 20px;
+    }
+
+    /* Book Image */
+    .col-md-6.book-image-col {
+        flex: 0 0 35%; /* Takes up 35% of the 1200px container (420px) */
+        max-width: 35%;
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+    }
+
+    .book-image {
+        width: 100%; /* Ensure the book-image container takes the full width of its column */
+    }
+
+    .book-image img {
+        width: 140%; /* Slightly increase the image size to make it larger (110% of 420px = 462px) */
+        height: auto;
+        display: block;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow for a 3D effect */
+    }
+
+    /* Button Styles */
+    .box {
+        width: 140px;
+        height: auto;
+        transition: .5s linear;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        padding: 15px;
+        text-align: center;
+        background: transparent;
+        text-transform: uppercase;
+        font-weight: 900;
+        border: none;
+        color: black;
+        cursor: pointer;
+    }
+
+    .box:before {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 100%;
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid transparent;
+        box-sizing: border-box;
+        transform: translateX(100%);
+    }
+
+    .box:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-top: 4px solid transparent;
+        border-right: 4px solid transparent;
+        box-sizing: border-box;
+        transform: translateX(-100%);
+    }
+
+    .box:hover {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .box:hover:before {
+        border-color: #262626;
+        height: 100%;
+        transform: translateX(0);
+        transition: .3s transform linear, .3s height linear .3s;
+    }
+
+    .box:hover:after {
+        border-color: #262626;
+        height: 100%;
+        transform: translateX(0);
+        transition: .3s transform linear, .3s height linear .5s;
+    }
+
+    button {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background: transparent;
+    }
+
+    /* Style the links container to display the buttons side by side */
+    .links {
+        display: flex; /* Align buttons side by side */
+        gap: 10px; /* Add space between the buttons */
+        width: 100%; /* Ensure the links container takes the full width */
+        justify-content: flex-start; /* Align buttons to the left on desktop */
+    }
+
+    .links button {
+        flex: 1; /* Allow buttons to grow and fill the available space */
+        text-align: center; /* Ensure text inside buttons is centered */
+    }
+
+    /* Responsive Adjustments for Book Spotlight */
+    @media (max-width: 1000px) {
+        .row {
+            flex-direction: column; /* Stack vertically on smaller screens */
+            align-items: center;
+        }
+
+        .col-md-6 {
+            flex: 0 0 100%; /* Take full width on smaller screens */
+            max-width: 100%;
+        }
+
+        .book-info {
+            flex: 0 0 100%; /* Take full width on smaller screens */
+            max-width: 100%;
+            text-align: center; /* Center text on smaller screens */
+        }
+
+        .col-md-6.book-image-col {
+            flex: 0 0 100%; /* Take full width on smaller screens */
+            max-width: 50%; /* Limit image width to 50% for better proportions */
+            margin-top: 20px;
+        }
+
+        .book-image img {
+            width: 100%; /* Reset the image width to fit the column on smaller screens */
+        }
+
+        .links {
+            justify-content: center; /* Center buttons on smaller screens */
+        }
+
+        .book-info h2 {
+            font-size: 1.7rem; /* Smaller heading on mobile */
+        }
+
+        .book-info p {
+            font-size: 0.8rem; /* Smaller paragraph text on mobile */
+        }
+
+        .author-info h3 {
+            font-size: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .col-md-6.book-image-col {
+            max-width: 70%; /* Further adjust image width for very small screens */
+        }
+
+        .book-info h2 {
+            font-size: 1.5rem;
+        }
+
+        .book-info p {
+            font-size: 0.9rem;
+        }
+
+        .author-info h3 {
+            font-size: 18px;
+        }
+
+        .box {
+            width: 120px; /* Smaller buttons on mobile */
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+    }
+  
+
+
+
+/* ================================
+   FACTS
+   ================================ */
+.facts-section {
+    width: 100%;
+    background: #f5f5f5; /* Light background for contrast */
+    padding: 30px 20px; /* Vertical padding, horizontal padding */
+    border-radius: 50px; /* Rounded borders */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 20px 0 70px 0; /* Space from header and below */
+}
+
+/* Fact Item */
+.fact {
+    display: flex;
+    align-items: center;
+    flex: 1; /* Equal width for each fact */
+    text-align: left;
+    padding: 0 20px;
+}
+
+/* Icon */
+.fact i {
+    font-size: 36px;
+    color: #4267b2; /* Tomato color for icons */
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.6s ease;
+}
+
+.fact i:hover {
+    color: #585858; /* Change color on hover */
+    transform: scale(1.1);
+}
+
+/* Fact Content */
+.fact-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 5px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.fact-content h3 :hover, .fact-content p:hover{
+    color: #4267b2;
+}
+
+.fact-content p {
+    font-size: 14px;
+    margin: 0;
+    color: #666;
+}
+
+/* Divider */
+.divider {
+    width: 1px;
+    height: 60px; /* Adjust height as needed */
+    background: #ccc;
+    margin: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 920px) {
+    .facts-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .fact {
+        display: flex;
+        flex-direction: row; 
+        justify-content: center; 
+        align-items: center; 
+        width: 100%;
+        margin: 15px 0;
+        padding: 0;
+    }
+    
+    
+    .divider {
+        width: 80%;
+        height: 1px;
+        margin: 15px 0;
+    }
+    
+    .header-content h1 {
+        font-size: 20px;
+    }
+}
+
+
+  /*================================
+   SERVICES
+   ================================ */
+
+/* Wrapper for Services Section */
+.services-section-wrapper {
+    width: 100%;
+    background-image: url('../images/background/service-section-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 10px 0; /* Adjust padding for spacing */
+}
+
+/* Ensure the section can expand to 100vh */
+.services-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    max-height: 700px;
+    /* Remove max-height to allow the section to grow freely */
+}
+
+/* Header Section */
+.services-header {
+    margin-bottom: 40px;
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.services-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.services-header h1 {
+    font-size: 2.0rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.services-header p {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Service Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    position: relative;
+    padding: 0 30px;
+}
+
+/* Service Card */
+.service-card {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(20px); /* Start 20px below for move-up effect */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px #4267b277;
+}
+
+/* Blue Card */
+.service-card.blue {
+    background-color: #4267b2;
+    color: #fff;
+}
+
+/* White Card */
+.service-card.white {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Card Icon */
+.service-card .icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: background-color 0.3s ease;
+}
+
+.service-card.blue .icon {
+    background-color: rgb(255, 255, 255);
+}
+
+.service-card.white .icon {
+    background-color: #4267b2;
+}
+
+.service-card .icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: currentColor;
+    transition: stroke 0.3s ease, transform 0.6s ease;
+}
+
+.service-card.blue .icon svg {
+    stroke: #4267b2;
+}
+
+.service-card.white .icon svg {
+    stroke: #ffffff;
+}
+
+.service-card:hover .icon {
+    background-color: #15439e;
+}
+
+.service-card:hover .icon svg {
+    transform: rotate(360deg);
+}
+
+.service-card.blue:hover .icon svg {
+    stroke: #ffffff;
+}
+
+.service-card.white:hover .icon {
+    background-color: #1948a5;
+}
+
+.service-card.white:hover .icon svg {
+    stroke: #ffffff;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.service-card ul,
+.service-card .learn-more {
+    display: none; /* Hidden by default above 1020px */
+}
+
+.service-card a.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.service-card.active {
+    border: 2px solid #4267b2;
+    box-shadow: 0 10px 25px rgba(107, 72, 255, 0.3);
+}
+
+.service-card.blue.active {
+    border-color: #fff;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Expanded layout for screens <= 1020px */
+@media (max-width: 1050px) {
+    .services-section {
+        max-height: 600px;
+    }
+
+    .services-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .services-header p {
+        font-size: 0.9rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 20px;
+        border: 1px solid #ddd;
+        box-shadow: none;
+        background-color: #fff;
+        color: #333;
+        text-align: left;
+        transition: border-color 0.3s ease;
+        display: none; /* Hidden by default, shown via JavaScript */
+    }
+
+    .service-card.active-card {
+        display: block;
+    }
+
+    .service-card:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: #4267b2;
+    }
+
+    .service-card.blue {
+        background-color: #fff;
+        color: #333;
+    }
+
+    .service-card .icon {
+        display: none;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    .service-card p::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(to right, #000, #0066ff);
+        margin: 10px 0;
+    }
+
+    .service-card ul {
+        display: block;
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .service-card ul li {
+        font-size: 0.8rem;
+        color: #666;
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 20px;
+    }
+
+    .service-card ul li::before {
+        content: "•";
+        color: #4267b2;
+        font-size: 1.1rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .service-card .learn-more {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .service-card .learn-more:hover {
+        background-color: #e0e0e0;
+    }
+
+    .service-card a.card-link {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    .navigation button {
+        padding: 10px 20px;
+        background-color: transparent;
+        border: none;
+        color: #333;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .navigation button:hover {
+        color: #6b48ff;
+    }
+
+    .navigation button:disabled {
+        color: #ccc;
+        cursor: not-allowed;
+    }
+}
+
+/* Reduce to one card at 850px and below */
+@media (max-width: 850px) {
+    .services-grid {
+        grid-template-columns: 1fr; /* One card at a time */
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .services-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .services-header p {
+        font-size: 0.85rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    .service-card ul li {
+        font-size: 0.85rem;
+    }
+
+    .service-card .learn-more {
+        font-size: 0.85rem;
+        padding: 8px 15px;
+    }
+}
+
+
+
+/*===============================
+   TEAM SECTION
+   ================================ */
+
+

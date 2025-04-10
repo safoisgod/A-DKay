@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Publishing Company</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Left Section - Text */
+    .about-text {
+      flex: 1;
+      padding-right: 40px;
+      margin-right: 30px;
+      border-right: 2px solid #eee;
+      max-width: 50%;
+    }
+
+    .about-text h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Right Section - Image Cards */
+    .cards {
+      position: relative;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 50%;
+    }
+
+    .card {
+      z-index: 1;
+      position: absolute;
+      width: 250px; /* Card width */
+      height: 350px; /* Card height */
+      border-radius: 10px;
+      transition: all .5s ease-out;
+      overflow: hidden;
+      transform: translateX(0px) translateY(0px) perspective(905px) rotateX(0deg) rotateY(0deg) rotateZ(-8deg);
+    }
+
+    .card.one {
+      top: -120px;
+      left: -150px;
+      background: url('https://via.placeholder.com/250x350') no-repeat center center;
+      background-size: cover;
+    }
+
+    .card.two {
+      top: -95px;
+      left: -125px;
+      background: url('https://via.placeholder.com/250x350') no-repeat center center;
+      background-size: cover;
+    }
+
+    .card.three {
+      top: -70px;
+      left: -100px;
+      background: url('https://via.placeholder.com/250x350') no-repeat center center;
+      background-size: cover;
+    }
+
+    .card:hover {
+      z-index: 4;
+      transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) !important;
+      transition: all .5s ease-out;
+    }
+
+    .cardDetails {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5); /* Darkened overlay */
+      padding: 20px;
+      transform-origin: left;
+      transform: perspective(2000px) rotateY(-90deg);
+      transition: transform 0.5s ease-out;
+    }
+
+    .card:hover .cardDetails {
+      transform: perspective(2000px) rotateY(0deg);
+    }
+
+    .cardDetailsHeader {
+      font-weight: 600;
+      color: #edb899;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .cardDetailsButton {
+      padding: 10px 20px;
+      border-radius: 25px;
+      background-color: #edb899;
+      color: #000;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .cardDetailsButton:hover {
+      background-color: #d99f76;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-text {
+        margin-right: 0;
+        border-right: none;
+        margin-bottom: 30px;
+      }
+
+      .cards {
+        justify-content: center;
+        width: 100%;
+        position: relative; /* Fix stacking issues on small screens */
+      }
+
+      .card {
+        position: relative;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="about-container">
+    <!-- Left Section: Company Text -->
+    <div class="about-text">
+      <h1>About Our Publishing Company</h1>
+      <p>
+        We are a passionate publishing company dedicated to bringing innovative and exciting books to life. Over the years, we have partnered with a variety of talented authors and illustrators to create works that resonate with readers across the globe.
+      </p>
+      <p>
+        Our mission is to create stories that captivate, inspire, and entertain. Whether it's fiction, non-fiction, or children’s books, our team works tirelessly to ensure that every project we take on reaches its full potential.
+      </p>
+    </div>
+
+    <!-- Right Section: Image Cards with Hover Effects -->
+    <div class="cards">
+      <div class="card one">
+        <div class="cardDetails">
+          <div class="cardDetailsHeader">Project 1</div>
+          <div class="cardDetailsButton">Learn More</div>
+        </div>
+      </div>
+      <div class="card two">
+        <div class="cardDetails">
+          <div class="cardDetailsHeader">Project 2</div>
+          <div class="cardDetailsButton">Learn More</div>
+        </div>
+      </div>
+      <div class="card three">
+        <div class="cardDetails">
+          <div class="cardDetailsHeader">Project 3</div>
+          <div class="cardDetailsButton">Learn More</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
